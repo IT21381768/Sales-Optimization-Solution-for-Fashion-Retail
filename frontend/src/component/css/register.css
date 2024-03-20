@@ -1,0 +1,27 @@
+.register-bk{
+    background-image: url('../images/login.jpg');
+    background-size: cover; 
+}
+
+.register-tr{
+    background-color: rgba(89, 85, 85, 0.8); 
+    border-radius: 8px;
+    padding: 20px; 
+}
+
+
+.field {
+    background-color: rgba(89, 85, 85, 0.8); 
+    border: 2px solid rgba(255, 255, 255, 0.8); 
+    color: #333333; 
+    padding: 10px; 
+    margin-bottom: 1px; 
+    width: 100%; 
+    border-radius: 4px; 
+    transition: border-color 0.3s ease; 
+}
+
+.field:focus {
+    outline: none; 
+    border-color: #000000; 
+}
