@@ -22,4 +22,21 @@ router.post("/",async(req,res)=>{
     }
 })
 
+// Route to fetch user profile
+router.get("/profile", async (req, res) => {
+    try {
+      // Assuming you have authentication middleware to get the current user
+      const user = req.user;
+  
+      if (!user) {
+        return res.status(401).send({ message: "Unauthorized" });
+      }
+  
+      res.status(200).send(user);
+    } catch (error) {
+      res.status(500).send({ message: error.message });
+    }
+  });
+
+  
 module.exports = router;

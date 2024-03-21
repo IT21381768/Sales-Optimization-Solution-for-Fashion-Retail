@@ -22,7 +22,7 @@ function Login(){
             const url = "http://localhost:5000/api/auth";
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("token", res.data);
-			window.location = "/home";
+			window.location = "/profile";
             }
 			
 		} catch (error) {
