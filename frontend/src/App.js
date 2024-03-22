@@ -9,7 +9,7 @@ import Login from './component/Login'
 import Register from './component/Register'
 import Home from './component/Home'
 import Profile from './component/Profile'
-
+import Product from './component/Product';
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
             <Route path="/Register" element={<Register/>}/>
             <Route path="/home" element={<Home/>}/>
             <Route path="/profile" element={<Profile/>}/>
+            <Route path="/product" element={<Product/>}/>
         </Routes>
         </Router>
     </div>

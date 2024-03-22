@@ -1,6 +1,10 @@
-.register-bk{
+.register-bk {
     background-image: url('../images/login.jpg');
-    background-size: cover; 
+    background-size: cover;
+    height: 150vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .register-tr{

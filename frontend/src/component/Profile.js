@@ -1,45 +1,43 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-function Profile() {
-  const [user, setUser] = useState(null);
+const Profile = () => {
+  const [userProfile, setUserProfile] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchUserProfile = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/users/");
-        setUser(response.data);
-        setLoading(false);
+        const response = await axios.get('http://localhost:5000/api/profile/profile');
+        setUserProfile(response.data);
       } catch (error) {
-        console.error("Error fetching user:", error);
+        setError(error.response.data.message);
+      } finally {
         setLoading(false);
       }
     };
 
-    fetchUser();
+    fetchUserProfile();
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <div>
-      {user ? (
+      <h2>User Profile</h2>
+      {userProfile && (
         <div>
-          <h1>Profile</h1>
-          <p>First Name: {user.firstName}</p>
-          <p>Last Name: {user.lastName}</p>
-          <p>Address: {user.address}</p>
-          <p>Contact No: {user.contactNo}</p>
-          <p>Email: {user.email}</p>
+          <p>First Name:{userProfile.firstName}</p>
+          <p><strong>Last Name:</strong> {userProfile.lastName}</p>
+          <p><strong>Email:</strong> {userProfile.email}</p>
+          <p><strong>Contact No:</strong> {userProfile.contactNo}</p>
+          <p><strong>Address:</strong> {userProfile.address}</p>
         </div>
-      ) : (
-        <div>No user found</div>
       )}
     </div>
   );
-}
+};
 
 export default Profile;
