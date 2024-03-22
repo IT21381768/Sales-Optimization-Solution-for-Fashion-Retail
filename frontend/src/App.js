@@ -11,11 +11,13 @@ import Home from './component/Home'
 import Profile from './component/Profile'
 import Product from './component/Product';
 import ProductAdd from './component/ProductAdd';
+import NavBar from './component/NavBar';
 
 function App() {
   return (
     <div className="App">
       <Router>
+      <NavBar />
           <Routes>
           <Route path="/" element={<Login/>}/>
             <Route path="/Register" element={<Register/>}/>
