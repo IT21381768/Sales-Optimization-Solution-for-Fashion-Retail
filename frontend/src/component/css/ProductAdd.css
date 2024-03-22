@@ -1,0 +1,59 @@
+body{
+    background-image: url('../images/login.jpg');
+    background-size: cover;
+}
+.product-add-container {
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: rgba(89, 85, 85, 0.8); 
+  border-radius: 8px;
+}
+
+.product-add-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 32px;
+
+}
+
+.product-add-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.product-add-form label {
+  font-weight: bold;
+}
+
+.product-add-form input,
+.product-add-form textarea {
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(89, 85, 85, 0.8); 
+    border: 2px solid rgba(255, 255, 255, 0.1); 
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.product-add-form textarea {
+  height: 100px;
+}
+
+.product-add-form button {
+    background-color: rgba(62, 59, 59, 0.8); 
+    color: white; 
+    padding: 7px 40px; 
+    margin: 8px 0;
+    border: 2px solid rgba(80, 75, 75, 0.8); 
+    cursor: pointer; 
+    border-radius: 4px; 
+    display: block; 
+    margin: auto;
+}
+
+.product-add-form button:hover {
+    background-color: rgb(71, 68, 68);
+}
+

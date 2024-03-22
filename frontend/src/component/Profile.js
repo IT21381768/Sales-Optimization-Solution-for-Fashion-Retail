@@ -9,7 +9,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/profile/profile');
+        const response = await axios.get('http://localhost:5000/api/profile');
         setUserProfile(response.data);
       } catch (error) {
         setError(error.response.data.message);

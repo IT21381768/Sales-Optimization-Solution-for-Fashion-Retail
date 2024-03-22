@@ -32,6 +32,19 @@ async function getProduct(req, res, next) {
   }
 }
 
-// Add more routes for creating, updating, and deleting products as needed
+
+router.post('/', async (req, res) => {
+    try {
+      // Create a new product instance using the data sent in the request body
+      const newProduct = new Product(req.body);
+      // Save the product to the database
+      const savedProduct = await newProduct.save();
+      res.status(201).json(savedProduct);
+    } catch (error) {
+      console.error('Error adding product:', error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
+
 
 module.exports = router;
