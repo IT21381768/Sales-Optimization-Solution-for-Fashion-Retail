@@ -69,8 +69,8 @@ function ProductList() {
                         <div className="product-item">
                             <h3>{product.name}</h3>
                             <img src={product.image} alt={product.name} className="product-image" />
+                            <p>{product.description}</p>
                             <p>Rs. {product.price}</p>
-                            <p>{product.capacity}ml</p>
                             
                                 <button type="submit" className="add-to-cart-button">ADD TO CART</button>
                            
