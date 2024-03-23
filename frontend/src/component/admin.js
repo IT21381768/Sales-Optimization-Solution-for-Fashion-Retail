@@ -16,6 +16,11 @@ function Admin() {
                     <button className="admin-button">View Product List</button>
                 </Link>
             </div>
+            <div>
+                <Link to="#">
+                    <button className="admin-button">View Registered Users</button>
+                </Link>
+            </div>
         </div>
     );
 }

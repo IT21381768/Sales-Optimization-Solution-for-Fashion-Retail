@@ -3,6 +3,7 @@
     width: 100%;
     border-collapse: collapse;
     background-color: #f9f9f9; 
+    margin-bottom: 300px;
 }
 
 .product-table th, .product-table td {
