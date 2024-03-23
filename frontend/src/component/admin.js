@@ -12,7 +12,7 @@ function Admin() {
                 </Link>
             </div>
             <div>
-                <Link to="#">
+                <Link to="/product/list">
                     <button className="admin-button">View Product List</button>
                 </Link>
             </div>

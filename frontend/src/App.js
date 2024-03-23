@@ -14,6 +14,7 @@ import ProductAdd from './component/ProductAdd';
 import NavBar from './component/NavBar';
 import Footer from './component/Footer';
 import Admin from './component/admin';
+import ProductList from './component/ProductList';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/product" element={<Product/>}/>
             <Route path="/product/add" element={<ProductAdd/>}/>
             <Route path="/admin" element={<Admin/>}/>
+            <Route path="/product/list" element={<ProductList/>}/>
         </Routes>
         <Footer />
         </Router>
