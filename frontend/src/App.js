@@ -13,6 +13,7 @@ import Product from './component/Product';
 import ProductAdd from './component/ProductAdd';
 import NavBar from './component/NavBar';
 import Footer from './component/Footer';
+import Admin from './component/admin';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/profile" element={<Profile/>}/>
             <Route path="/product" element={<Product/>}/>
             <Route path="/product/add" element={<ProductAdd/>}/>
+            <Route path="/admin" element={<Admin/>}/>
         </Routes>
         <Footer />
         </Router>
