@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* cart */
+.bag-Quantity-wrapper {
+    position: relative;
+  }
+  
+  .bag-Quantity {
+    position: absolute;
+    top: 79%; /* Position the top of the number at the center of the circle */
+    left: 34%; /* Position the left side of the number at the center of the circle */
+    transform: translate(-50%, -50%); /* Center the number inside the circle */
+    background-color: red; /* Change this to the desired background color */
+    color: white;
+    padding: 5px;
+    font-size: 0.7rem; /* Adjust this value to set the font size of the number */
+    width: 21px; /* Adjust this value to set the width of the circle */
+    height: 21px; /* Adjust this value to set the height of the circle */
+    line-height: 0.8; /* Reset line-height */
+    text-align: center; /* Reset text-align */
+    border-radius: 50%; /* This creates a circle */
+  }
+
+  /* not found */
+
+    .not-found {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color:rgb(68, 68, 68);
+        height: 100vh;
+        min-height: 100vh;
+        font-size: 2rem;
+    }
