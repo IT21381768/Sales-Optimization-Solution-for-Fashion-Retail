@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route ,Redirect} from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
-
 import 'react-toastify/dist/ReactToastify.css';
-
 import Login from './component/Login';
 import Register from './component/Register';
 import Home from './component/Home';
@@ -13,8 +11,6 @@ import NavBar from './component/NavBar';
 import Cart from './component/Cart'
 import HomePraveen from './component/HomeP';
 import NotFound from './component/NotFound';
- 
- 
  
 
 function App() {

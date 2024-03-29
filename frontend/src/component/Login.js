@@ -16,7 +16,7 @@ function Login(){
 		e.preventDefault();
 		try {
             if(data.email === "admin@gmail.com" && data.password === "admin"){
-                window.location = "/Admin";
+                window.location = "/admin";
             }
             else{
             const url = "http://localhost:5000/api/auth";

@@ -51,18 +51,18 @@ function ProductAdd() {
           <label>Quantity:</label>
           <input type="number" name="quantity" value={formData.quantity} onChange={handleChange} />
         </div>
-        <div>
+        {/* <div>
           <label>Capacity:</label>
           <input type="number" name="capacity" value={formData.capacity} onChange={handleChange} />
-        </div>
+        </div> */}
         <div>
           <label>Material:</label>
           <input type="text" name="material" value={formData.material} onChange={handleChange} />
         </div>
-        <div>
+        {/* <div>
           <label>Percentage:</label>
           <input type="number" name="percentage" value={formData.percentage} onChange={handleChange} />
-        </div>
+        </div> */}
         <div>
           <label>Country:</label>
           <input type="text" name="country" value={formData.country} onChange={handleChange} />

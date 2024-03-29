@@ -28,9 +28,6 @@ function NavBar() {
         </Link>
         <ul className="nav-links">
           <li>
-            <Link to="/product/add">Admin</Link>
-          </li>
-          <li>
             <Link to="/product">Products</Link>
           </li>
           <li>
