@@ -19,7 +19,7 @@ const cartSlice = createSlice({
         toast.info(`Increased ${action.payload.name} quantity`, { position: 'bottom-left' });
         console.log(state.cartItem[itemIndex].cartQuantity);
       } else {
-        const tempProduct = { ...action.payload, cartQuantity: 1 };
+        const tempProduct = { ...action.payload, cartQuantity: 1 ,size: 'Small'};
         state.cartItem.push(tempProduct);
         toast.success(`${action.payload.name} added to cart`, { position: 'bottom-left' });
       }
@@ -56,6 +56,14 @@ const cartSlice = createSlice({
        toast.error(`Clear Cart`, { position: 'bottom-left' });
      localStorage.setItem('cart', JSON.stringify(state.cartItem)); // Corrected key
   },
+  updateSize(state, action) {
+    const itemIndex = state.cartItem.findIndex((item) => item._id === action.payload.id);
+    if (itemIndex >= 0) {
+       state.cartItem[itemIndex].size = action.payload.size;
+       toast.info(`Size updated for ${action.payload.name}`, { position: 'bottom-left' });
+    }
+    localStorage.setItem('cart', JSON.stringify(state.cartItem));
+   },
 
 
        
@@ -63,5 +71,5 @@ const cartSlice = createSlice({
 }
 );
 
-export const { addToCart, removeFromCart, decreaseCart,clearCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, decreaseCart,clearCart ,updateSize} = cartSlice.actions;
 export default cartSlice.reducer;

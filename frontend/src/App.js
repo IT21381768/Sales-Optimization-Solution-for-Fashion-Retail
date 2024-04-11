@@ -11,6 +11,7 @@ import NavBar from './component/NavBar';
 import Cart from './component/Cart'
 import HomePraveen from './component/HomeP';
 import NotFound from './component/NotFound';
+import Checkout from './component/Checkout';
  
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/" element={<HomePraveen />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/checkout" element={<Checkout />} />
         
         </Routes>
         <ToastContainer />

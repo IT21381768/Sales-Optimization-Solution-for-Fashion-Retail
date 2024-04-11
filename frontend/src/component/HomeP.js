@@ -5,6 +5,7 @@ import { useGetAllProductsQuery } from "../features/productApi";
 import { useNavigate } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
+import './css/home.css';
 
 const HomeP = () => {
     const { data, error, isLoading } = useGetAllProductsQuery();
@@ -39,7 +40,7 @@ const HomeP = () => {
                    
                     <div className="mt-8">
                         <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">New Arrivals</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                        {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                             {data?.map((product) => (
                                 <div key={product._id} className="product bg-white shadow-lg rounded-lg p-6">
                                     <h1 className="text-xl font-semibold mb-2 text-gray-800">{product.name}</h1>
@@ -54,11 +55,25 @@ const HomeP = () => {
                                     </button>
                                 </div>
                             ))}
+                        </div> */}
+
+                        <div className="gallery">
+                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+                            {data?.map((product) => (
+                            <div key={product._id} className="content">
+                                <img src={product.image} alt={product.title} />
+                                <h3>{product.title}</h3>
+                                <p>{product.description.substring(0, 70)}</p> {/* Limit description to 100 characters */}
+                                <h6>${product.price}</h6> {/* Add dollar sign to price */}
+                                <button className="buy-1" onClick={()=>handleAddToCart(product)}>Checkout</button>
+                            </div>
+                            ))}
                         </div>
                     </div>
-                </>
-            )}
-        </div>
+                        </>
+                                )}
+                            </div>
     );
 };
 

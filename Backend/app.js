@@ -21,6 +21,10 @@ const profileRoutes = require("./Routes/Profile");
 app.use("/api/profile",profileRoutes);
 const productRoutes = require("./Routes/Products");
 app.use("/api/products",productRoutes);
+const cartRoutes = require('./Routes/Cart');
+app.use('/api/carts', cartRoutes);
+
+
 
 // Connect to MongoDB
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
