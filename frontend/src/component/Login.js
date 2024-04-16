@@ -12,31 +12,50 @@ function Login(){
 		setData({ ...data, [input.name]: input.value });
 	}
 
-    const handleSubmit = async (e) => {
-		e.preventDefault();
-		try {
-            if(data.email === "admin@gmail.com" && data.password === "admin"){
-                window.location = "/admin";
-            }
-            else{
-            const url = "http://localhost:5000/api/auth";
-			const { data: res } = await axios.post(url, data);
-			localStorage.setItem("token", res.data);
-			window.location = "/profile";
-            }
+    // const handleSubmit = async (e) => {
+	// 	e.preventDefault();
+	// 	try {
+    //         if(data.email === "admin@gmail.com" && data.password === "admin"){
+    //             window.location = "/admin";
+    //         }
+    //         else{
+    //         const url = "http://localhost:5000/api/auth";
+	// 		const { data: res } = await axios.post(url, data);
+	// 		localStorage.setItem("token", res.data);
+	// 		window.location = "/profile";
+    //         }
 			
-		} catch (error) {
-			if (
-                error.response &&
-                error.response.status >= 400 &&
-                error.response.status <= 500
-            ) {
-                setError(error.response.data.message);
+	// 	} catch (error) {
+	// 		if (
+    //             error.response &&
+    //             error.response.status >= 400 &&
+    //             error.response.status <= 500
+    //         ) {
+    //             setError(error.response.data.message);
+    //         } else {
+    //             setError(error.response.data);
+    //         }
+	// 	}
+	// };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+           
+            if (data.email === "admin@gmail.com" && data.password === "admin") {
+                window.location = "/Admin";
             } else {
-                setError(error.response.data);
+              const url = "http://localhost:5000/api/auth";
+              const { data: res } = await axios.post(url, data);
+                localStorage.setItem("token", res.data.token);
+                localStorage.setItem("user", JSON.stringify(res.data.user));
+                window.location = "/";
             }
-		}
-	};
+        } catch (error) {
+            setError(error.response.data.message);
+        }
+    };
+
 
     return(
 <section class="login-bk">

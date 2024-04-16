@@ -20,6 +20,7 @@ function NavBar() {
 
  const totalQuantity = getTotalQuantity();
 
+ const user = JSON.parse(localStorage.getItem("user"));
  return (
     <nav className="navbar">
       <div className="container">
@@ -31,7 +32,7 @@ function NavBar() {
             <Link to="/product">Products</Link>
           </li>
           <li>
-            <Link to="/">Login</Link>
+            <Link to="/login">Login</Link>
           </li>
           <li>
             <Link to="/Register">Register</Link>
@@ -47,6 +48,16 @@ function NavBar() {
               </div>
             </Link>
           </li>
+          <li>{user ? (
+            <Link to="/profile" style={{ textDecoration: "none", color: "white" }}>
+              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" color="inherit">{user.firstName}</button>
+            </Link>
+          ) : (
+
+            <Link to="" style={{ textDecoration: "none", color: "white" }}>
+              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" color="inherit">Login</button>
+            </Link>
+          )}</li>
         </ul>
       </div>
     </nav>

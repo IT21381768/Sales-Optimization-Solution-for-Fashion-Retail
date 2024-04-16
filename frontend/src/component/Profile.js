@@ -1,43 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-const Profile = () => {
-  const [userProfile, setUserProfile] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+export default function Profilepage() {
+    const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const fetchUserProfile = async () => {
-      try {
-        const response = await axios.get('http://localhost:5000/api/profile');
-        setUserProfile(response.data);
-      } catch (error) {
-        setError(error.response.data.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchUserProfile();
-  }, []);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
-
+    useEffect(() => {
+        const fetchUser = async () => {
+            const token = localStorage.getItem("token");
+            const userId = JSON.parse(localStorage.getItem("user"))._id;
+            try {
+                const { data } = await axios.get(`http://localhost:5000/api/auth/profile/${userId}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+                setUser(data);
+            } catch (error) {
+                console.error("Error fetching user data:", error);
+            }//sdasd
+        };
+        fetchUser();
+    }, []);
   return (
     <div>
-      <h2>User Profile</h2>
-      {userProfile && (
-        <div>
-          <p>First Name:{userProfile.firstName}</p>
-          <p><strong>Last Name:</strong> {userProfile.lastName}</p>
-          <p><strong>Email:</strong> {userProfile.email}</p>
-          <p><strong>Contact No:</strong> {userProfile.contactNo}</p>
-          <p><strong>Address:</strong> {userProfile.address}</p>
+            {user && (
+                <div>
+                  <h1>jbjh</h1>
+                  <h1>jbjh</h1>
+                  <h1>jbjh</h1>
+                  <h1>jbjh</h1>
+                    <h2>Welcome, {user.firstName}</h2>
+                    <p>Email: {user.email}</p>
+                    {/* <img class="rounded w-36 h-36" src={`http://localhost:5000/images/${user.filepath}`} alt="Extra large avatar"></img> */}
+                    {/* Add form fields to update user details */}
+                </div>
+            )}
         </div>
-      )}
-    </div>
-  );
-};
-
-export default Profile;
+  )
+}

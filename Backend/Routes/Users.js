@@ -22,21 +22,25 @@ router.post("/",async(req,res)=>{
     }
 })
 
-// Route to fetch user profile
+
 router.get("/profile", async (req, res) => {
-    try {
-      // Assuming you have authentication middleware to get the current user
-      const user = req.user;
-  
-      if (!user) {
-        return res.status(401).send({ message: "Unauthorized" });
-      }
-  
+  try {
+      const token = req.header("x-auth-token");
+      if (!token)
+          return res.status(401).send({ message: "Access denied. No token provided." });
+
+      const decoded = jwt.verify(token, process.env.JWTPRIVATEKEY);
+      const user = await User.findById(decoded._id).select("-password");
+      if (!user)
+          return res.status(404).send({ message: "User not found." });
+
       res.status(200).send(user);
-    } catch (error) {
+  } catch (error) {
       res.status(500).send({ message: error.message });
-    }
-  });
+  }
+});
+
+
 
   
 module.exports = router;
