@@ -31,8 +31,6 @@ export default function Profilepage() {
                   <h1>jbjh</h1>
                     <h2>Welcome, {user.firstName}</h2>
                     <p>Email: {user.email}</p>
-                    {/* <img class="rounded w-36 h-36" src={`http://localhost:5000/images/${user.filepath}`} alt="Extra large avatar"></img> */}
-                    {/* Add form fields to update user details */}
                 </div>
             )}
         </div>
