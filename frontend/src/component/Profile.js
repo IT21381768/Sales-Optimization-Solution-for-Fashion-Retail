@@ -21,6 +21,14 @@ export default function Profilepage() {
         };
         fetchUser();
     }, []);
+
+    const handleLogout = () => {
+        // Clear token from local storage
+        localStorage.removeItem("token");
+        // Optionally perform additional cleanup tasks
+        // For example, clear user data from state
+        setUser(null);
+    };
   return (
     <div>
             {user && (
@@ -31,6 +39,7 @@ export default function Profilepage() {
                   <h1>jbjh</h1>
                     <h2>Welcome, {user.firstName}</h2>
                     <p>Email: {user.email}</p>
+                    <button className="btn btn-success" onClick={handleLogout}>Log Out</button>
                 </div>
             )}
         </div>
